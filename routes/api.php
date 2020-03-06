@@ -48,9 +48,7 @@ Route::group([
   Route::post('login', 'Auth\AuthController@login');
   Route::post('logout', 'Auth\AuthController@logout');
   Route::post('refresh', 'Auth\AuthController@refresh');
-  
+  Route::post('register', 'Auth\AuthController@register');
   Route::post('me', 'Auth\AuthController@me');
 
 });
-
-Route::post('register', 'Auth\AuthController@register');

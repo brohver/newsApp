@@ -26,6 +26,17 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    public function register(Request $request) {
+      $user = new User();
+      $user->fill($request->post());
+      if($user->save) {
+        return response([
+          "message" => "success",
+        ], 200);
+      }
+    }
+    
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');

@@ -32,7 +32,7 @@ class AuthController extends Controller
       $user = new User();
       $user->fill($request->post());
       $user->password = bcrypt($request->password);
-      if($user->save) {
+      if($user->save()) {
         return response([
           "message" => "success",
         ], 200);

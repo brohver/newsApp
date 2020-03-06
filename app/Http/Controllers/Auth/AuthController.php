@@ -30,6 +30,7 @@ class AuthController extends Controller
     public function register(Request $request) {
       $user = new User();
       $user->fill($request->post());
+      $user->password = bcrypt($request->password);
       if($user->save) {
         return response([
           "message" => "success",
